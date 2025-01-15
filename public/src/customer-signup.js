@@ -31,6 +31,7 @@ const storage = getStorage();
 const nameInput = document.getElementById('nameInp');
 const emailInput = document.getElementById('emailInp');
 const phoneInput = document.getElementById('phoneInp');
+const pinInput = document.getElementById('pininp');
 const fileInput = document.getElementById('profileImgInp');
 const submitButton = document.getElementById('sub_btn');
 
@@ -41,6 +42,8 @@ const Validation = () => {
     const nameregex = /^[a-zA-Z\s]+$/;
     const emailregex = /^\w+([\.-]?\w+)*@gmail\.com$/;
     const phoneregex = /^(\+\d{1,3}[- ]?)?[0]?\d{10}$/;
+    const pinregex = /^\d{4}$/;
+
 
     if (isEmptyOrSpaces(nameInput.value) || isEmptyOrSpaces(emailInput.value) || isEmptyOrSpaces(phoneInput.value)) {
         swal("", "You cannot leave any field empty!/कोणत्याही चौकटीस रिकामं सोडू नका!", "warning");
@@ -63,6 +66,10 @@ const Validation = () => {
         return false;
     }
 
+    if (!pinregex.test(pinInput.value)) {
+        swal("", "Enter a valid PIN number!/वैध पिन प्रविष्ट करा!", "warning");
+        return false;
+    }
     return true;
 };
 
@@ -84,7 +91,6 @@ const uploadImage = async () => {
         );
     });
 };
-
 const RegisterCustomer = async () => {
     if (!Validation()) {
         return;
@@ -94,20 +100,25 @@ const RegisterCustomer = async () => {
         const dbRef = ref(db);
         const emailWithDomain = `${emailInput.value.trim()}@gmail.com`;
 
+        // Check if the customer already exists
         const customerSnapshot = await get(child(dbRef, `Customers/${phoneInput.value}`));
         if (customerSnapshot.exists()) {
             swal("", "Account already exists!/खाते आधीच अस्तित्वात आहे!", "warning");
         } else {
+            // Upload the profile image (if provided)
             const imgURL = await uploadImage();
 
+            // Save the customer data, including the PIN
             await set(ref(db, `Customers/${phoneInput.value}`), {
                 fullname: nameInput.value,
                 email: emailWithDomain,
                 phone: phoneInput.value,
+                pin: pinInput.value, // Save the PIN
                 profileImgURL: imgURL || "null",  // Save image URL or "null" if no image
                 balance: 1000  // Default balance
             });
 
+            // Success message and redirect
             swal("Customer added successfully!", "Log In at next step./ग्राहक यशस्वीरित्या जोडला गेला! पुढच्या टप्प्यात लॉगिन करा.", "success").then(() => {
                 window.location.replace("./home.html");
             });
@@ -116,6 +127,7 @@ const RegisterCustomer = async () => {
         swal("Error!", "An error occurred during registration. / क्षमस्व .. ", "error");
     }
 };
+
 
 submitButton.addEventListener('click', RegisterCustomer);
 document.getElementById("back_btn").addEventListener("click", function() {

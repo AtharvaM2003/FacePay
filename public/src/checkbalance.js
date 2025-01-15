@@ -85,7 +85,7 @@ function AuthenticatePIN() {
 // Verify PIN
 function verifyPIN(user) {
     let enteredPIN = pinInput.value;
-    let correctPIN = user.phone.substring(0, 4); // Assuming user.phone is stored in the format with at least 4 digits
+    let correctPIN = user.pin; // Assuming user.phone is stored in the format with at least 4 digits
 
     if (enteredPIN === correctPIN) {
         let keepLoggedIn = document.getElementById('customSwitch1').checked;

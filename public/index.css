@@ -280,3 +280,263 @@ label.custom-control-label {
     font-size: 13px;
     font-family: "Montserrat", sans-serif;
 }
+/* Base styles are already defined above */
+
+/* Extra small devices (phones, <576px) */
+@media (max-width: 575.98px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .language-switch {
+        margin-top: 10px;
+    }
+
+    .section-container {
+        flex-direction: column;
+        box-shadow: none;
+        margin: 10px;
+    }
+
+    .section-container .imgBx {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    .section-container .imgBx img {
+        border-radius: 25px 25px 0 0;
+    }
+
+    .section-container .mb-5 {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .section-container input.form-control.mb-3,
+    .section-container button {
+        width: 100%;
+    }
+
+    .ask-account {
+        margin: 10px 0;
+        text-align: center;
+    }
+}
+
+/* Small devices (tablets, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .section-container {
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .section-container .imgBx {
+        width: 100%;
+        height: auto;
+    }
+
+    .section-container .imgBx img {
+        border-radius: 25px 25px 0 0;
+    }
+
+    .section-container .mb-5 {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .section-container input.form-control.mb-3,
+    .section-container button {
+        width: 100%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .section-container {
+        flex-direction: row;
+        margin: 30px;
+    }
+
+    .section-container .imgBx {
+        width: 50%;
+        height: auto;
+    }
+
+    .section-container .mb-5 {
+        width: 50%;
+        padding: 5%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .section-container {
+        margin: 40px auto;
+    }
+
+    .section-container .imgBx {
+        width: 50%;
+    }
+
+    .section-container .mb-5 {
+        width: 50%;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .section-container {
+        margin: 50px auto;
+        max-width: 1200px;
+    }
+
+    .section-container .imgBx {
+        width: 50%;
+    }
+
+    .section-container .mb-5 {
+        width: 50%;
+    }
+}
+/* General Reset for Responsive Design */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Default Styles (for large screens) */
+/* No changes needed for this section as large screen styles are already defined */
+
+/* Tablet Screens (768px - 1024px) */
+@media (max-width: 1024px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .language-switch {
+        margin-top: 10px;
+    }
+
+    .section-container {
+        flex-direction: column;
+        margin: 5% 5%;
+    }
+
+    .section-container .imgBx,
+    .section-container .mb-5 {
+        width: 100%;
+    }
+
+    .section-container .imgBx img {
+        border-radius: 25px 25px 0 0;
+    }
+
+    .section-container h4.mb-3 {
+        margin: 10px 0;
+        font-size: 1rem;
+    }
+
+    .topper {
+        width: 90%;
+    }
+
+    .btn {
+        width: 90% !important;
+    }
+}
+
+/* Mobile Screens (up to 767px) */
+@media (max-width: 767px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+    }
+
+    .logo-img {
+        height: 35px;
+    }
+
+    .floating-message {
+        right: 20px;
+        top: 5px;
+        font-size: 12px;
+    }
+
+    .section-container {
+        flex-direction: column;
+        margin: 10px;
+        padding: 5px;
+        box-shadow: none;
+    }
+
+    .section-container .imgBx img {
+        height: auto;
+    }
+
+    .section-container h4.mb-3 {
+        font-size: 0.9rem;
+        margin: 5px 0;
+    }
+
+    .topper {
+        font-size: 12px;
+        width: 95%;
+    }
+
+    .btn {
+        font-size: 12px;
+        width: 95% !important;
+    }
+
+    .profile-logo {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+/* Small Mobile Screens (up to 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 5px 10px;
+    }
+
+    .logo-img {
+        height: 30px;
+    }
+
+    .floating-message {
+        font-size: 10px;
+    }
+
+    .section-container h4.mb-3 {
+        font-size: 0.8rem;
+    }
+
+    .topper {
+        font-size: 10px;
+    }
+
+    .btn {
+        font-size: 10px;
+    }
+
+    .profile-logo {
+        height: 35px;
+        width: 35px;
+    }
+}

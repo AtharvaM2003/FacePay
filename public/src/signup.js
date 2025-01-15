@@ -36,6 +36,7 @@ const emailInput = document.getElementById('emailInp');
 const phoneInput = document.getElementById('phoneInp');
 const fileInput = document.getElementById('profileImgInp');
 const submitButton = document.getElementById('sub_btn');
+const pinInput = document.getElementById('pinInp');
 
 // Helper Functions
 const isEmptyOrSpaces = str => str == null || str.match(/^ *$/) != null;
@@ -44,6 +45,8 @@ const Validation = () => {
     const nameregex = /^[a-zA-Z\s]+$/;
     const emailregex = /^\w+([\.-]?\w+)*@gmail\.com$/;
     const phoneregex = /^(\+\d{1,3}[- ]?)?[0]?\d{10}$/;
+    const pinRegex = /^\d{4}$/;
+
 
     if (isEmptyOrSpaces(nameInput.value) || isEmptyOrSpaces(emailInput.value) || isEmptyOrSpaces(phoneInput.value)) {
         swal("", "You cannot leave any field empty!/कोणत्याही चौकटीस रिकामं सोडू नका!", "warning");
@@ -63,6 +66,10 @@ const Validation = () => {
 
     if (!phoneregex.test(phoneInput.value)) {
         swal("", "Enter a valid phone number!/वैध फोन नंबर प्रविष्ट करा!", "warning");
+        return false;
+    }
+    if (!pinRegex.test(pinInput.value)) {
+        swal("", "Enter a valid PIN!/वैध पिन प्रविष्ट करा!", "warning");
         return false;
     }
 
@@ -107,6 +114,7 @@ const RegisterUser = async () => {
                 fullname: nameInput.value,
                 email: emailWithDomain,
                 phone: phoneInput.value,
+                pin: pinInput.value,
                 profileImgURL: imgURL || "null",  // Save image URL or "null" if no image
                 balance: parseInt(1000, 10)  // Explicitly convert balance to an integer
             });

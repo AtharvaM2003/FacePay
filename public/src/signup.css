@@ -50,7 +50,7 @@ header {
 
 main {
     width: auto;
-    margin: 1% 10%;
+    margin: 1% 0%;
 }
          
 .section-container {
@@ -283,4 +283,78 @@ label.custom-control-label {
     display: block;
     opacity: 1;
     visibility: visible;
+}
+/* General Section Container Styles */
+.section-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Card effect */
+    border-radius: 10px;
+    background: #ffffff; /* Background color for the card */
+    overflow: hidden; /* Ensure child elements stay within the card */
+}
+
+/* Image Box Styles */
+.section-container .imgBx {
+    flex: 1;
+    max-width: 50%; /* Limit the image container width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.section-container .imgBx img {
+    max-width: 100%; /* Prevent the image from overflowing */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Slight rounded corners */
+    object-fit: cover; /* Ensure the image fits well */
+}
+
+
+.section-container button:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive Styles for Smaller Screens */
+@media screen and (max-width: 768px) {
+    .section-container {
+        flex-direction: column; /* Stack image and form vertically */
+        padding: 15px;
+        max-width: 90%; /* Reduce overall card width */
+        margin: 0 auto; /* Center align card */
+    }
+
+    .section-container .imgBx {
+        max-width: 100%; /* Allow image container to span full width */
+        margin-bottom: 20px; /* Add spacing below the image */
+    }
+
+    .section-container .imgBx img {
+        max-width: 90%; /* Ensure image stays within boundaries */
+        border-radius: 10px; /* Maintain rounded corners */
+    }
+
+    .section-container .mb-5 {
+        max-width: 100%; /* Allow form to span full width */
+        padding: 10px 0; /* Adjust padding for smaller screens */
+    }
+
+    .section-container input.form-control.mb-3,
+    .section-container button {
+        width: 100%; /* Slightly narrower for neat spacing */
+    }
+}
+
+/* Additional Centering for All Elements */
+.section-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
